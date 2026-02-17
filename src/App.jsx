@@ -1,17 +1,35 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { TAGS, projects } from "./projectsData";
 import "./App.css";
 
 function App() {
-  const [selectedTags, setSelectedTags] = useState([]); 
+  const [selectedTags, setSelectedTags] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+  const projectMatch = currentHash.match(/^#\/projects\/(.+)/);
+  const projectIdFromHash = projectMatch ? projectMatch[1] : null;
+
+  const fullProject = projectIdFromHash
+    ? projects.find((p) => p.id === projectIdFromHash)
+    : null;
 
   const filteredProjects = useMemo(() => {
     if (selectedTags.length === 0) {
       return projects;
     }
 
-    // only include projects that have *all* selected tags
     return projects.filter((project) =>
       selectedTags.every((tag) => project.tags.includes(tag))
     );
@@ -28,8 +46,8 @@ function App() {
   const toggleTag = (tag) => {
     setSelectedTags((prev) =>
       prev.includes(tag)
-        ? prev.filter((t) => t !== tag) // rm if already selected
-        : [...prev, tag] // add if not selected
+        ? prev.filter((t) => t !== tag)
+        : [...prev, tag]
     );
   };
 
@@ -39,32 +57,128 @@ function App() {
 
   return (
     <div className="app-root">
-      <div className="app-shell">
-        <Header />
-        <main>
-          <Hero />
-          <FilterBar
-            tags={TAGS}
-            selectedTags={selectedTags}
-            onToggleTag={toggleTag}
-            onClearFilters={clearFilters}
-          />
-          <ProjectGrid
-            projects={filteredProjects}
-            onProjectClick={handleCardClick}
-          />
-          <FooterNote />
-        </main>
+      {fullProject ? (
+        <FullProjectPage project={fullProject} />
+      ) : (
+        <div className="app-shell">
+          <ConstructionBanner />
+          <Header />
+          <main>
+            <Hero />
+            <FilterBar
+              tags={TAGS}
+              selectedTags={selectedTags}
+              onToggleTag={toggleTag}
+              onClearFilters={clearFilters}
+            />
+            <ProjectGrid
+              projects={filteredProjects}
+              onProjectClick={handleCardClick}
+            />
+            <FooterNote />
+          </main>
 
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={handleCloseModal} />
+          {selectedProject && (
+            <ProjectModal
+              project={selectedProject}
+              onClose={handleCloseModal}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ================= FULL PROJECT PAGE ================= */
+
+function FullProjectPage({ project }) {
+  return (
+    <div className="app-root">
+      <div className="app-shell">
+        <button
+          className="back-button"
+          onClick={() => {
+            window.location.hash = "";
+          }}
+        >
+          ← Back to portfolio
+        </button>
+
+        <h1>{project.title}</h1>
+        {project.role && <p className="project-role">{project.role}</p>}
+        <p>{project.longDescription}</p>
+
+        {project.impact && (
+          <>
+            <h2>Impact</h2>
+            <ul>
+              {project.impact.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {project.techStack && (
+          <>
+            <h2>Tech Stack</h2>
+            <ul>
+              {project.techStack.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {project.links?.codeExamples?.length > 0 && (
+          <>
+            <h2>All Code Examples</h2>
+            <ul className="modal-links">
+              {project.links.codeExamples.map((example) => (
+                <li key={example.link}>
+                  <a
+                    href={example.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {example.text}
+                  </a>
+                  <p>{example.description}</p>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </div>
     </div>
   );
 }
 
-/* Header */
+/* ================= BANNER ================= */
+
+function ConstructionBanner() {
+  return (
+    <div className="construction-banner">
+      <p>
+        🚧 This portfolio site is currently under construction. Styling and additional
+        project examples are a work in progress. <br></br> Please check back soon but in the mean time
+        feel free to review my{" "}
+        <a
+          href="/portfolio/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          resume
+        </a>{" "}
+        for full experience and work history!
+      </p>
+    </div>
+  );
+}
+
+
+/* ================= HEADER ================= */
 
 function Header() {
   return (
@@ -73,13 +187,13 @@ function Header() {
         <div className="header-left">
           <p className="header-name">Mandy Lloyd</p>
           <p className="header-role">
-            Front-End Developer · React · Accessibility
+            Frontend Engineer · React · DHS Trusted Tester
           </p>
         </div>
         <nav className="header-links" aria-label="Contact links">
           <a href="mailto:mandylloyd.tech@gmail.com">Email</a>
           <a
-            href="https://github.com/mandylloyd"
+            href="https://github.com/mandylloyd?tab=overview&from=2024-12-01&to=2024-12-31"
             target="_blank"
             rel="noreferrer"
           >
@@ -92,9 +206,9 @@ function Header() {
           >
             LinkedIn
           </a>
-          <a 
-            href="https://docs.google.com/document/d/1QQ-oGmQBPnZbfIuVyJo9Wc1ukaulPoLk/edit?usp=sharing&ouid=113600780315734836168&rtpof=true&sd=true" 
-            target="_blank" 
+          <a
+            href="/portfolio/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
+            target="_blank"
             rel="noreferrer"
           >
             Resume
@@ -105,7 +219,7 @@ function Header() {
   );
 }
 
-/* Hero / intro */
+/* ================= HERO ================= */
 
 function Hero() {
   return (
@@ -116,22 +230,19 @@ function Hero() {
       </h1>
       <p className="hero-text">
         I build accessible, component-driven interfaces using React, JavaScript,
-        and modern CSS. This page highlights a few projects and patterns I’ve
-        worked on.
+        and modern CSS.
       </p>
-      <ul className="hero-keywords" aria-label="Key skills">
+      {/* <ul className="hero-keywords">
         <li>React</li>
         <li>JavaScript</li>
         <li>CSS / Sass</li>
         <li>Accessibility</li>
-        <li>Performance</li>
-        <li>Blogs</li>
-      </ul>
+      </ul> */}
     </section>
   );
 }
 
-/* Filter bar */
+/* ================= FILTER BAR ================= */
 
 function FilterBar({ tags, selectedTags, onToggleTag, onClearFilters }) {
   const hasActiveFilters = selectedTags.length > 0;
@@ -176,8 +287,7 @@ function FilterBar({ tags, selectedTags, onToggleTag, onClearFilters }) {
   );
 }
 
-
-/* Project grid */
+/* ================= PROJECT GRID ================= */
 
 function ProjectGrid({ projects, onProjectClick }) {
   if (projects.length === 0) {
@@ -230,7 +340,7 @@ function ProjectCard({ project, onClick }) {
   );
 }
 
-/* Modal */
+/* ================= MODAL ================= */
 
 function ProjectModal({ project, onClose }) {
   const handleBackdropClick = (event) => {
@@ -251,87 +361,70 @@ function ProjectModal({ project, onClose }) {
         <header className="modal-header">
           <div>
             <h2 id="project-modal-title">{project.title}</h2>
-            {project.role && <p className="modal-role">{project.role}</p>}
+            {project.role && (
+              <p className="modal-role">{project.role}</p>
+            )}
           </div>
-          <button type="button" onClick={onClose}>
-            Close
+
+          <button
+            type="button"
+            className="modal-close"
+            onClick={onClose}
+            aria-label="Close modal"
+          >
+            ✕
           </button>
         </header>
 
         <div className="modal-body">
-          <section aria-label="Project overview">
+          <section>
             <h3>Overview</h3>
             <p>{project.longDescription}</p>
           </section>
 
-          {project.techStack && project.techStack.length > 0 && (
-            <section aria-label="Technologies used">
-              <h3>Tech Stack</h3>
-              <ul>
-                {project.techStack.map((tech) => (
-                  <li key={tech}>{tech}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {project.images && project.images.length > 0 && (
-            <section aria-label="Project screenshots">
-              <h3>Screenshots</h3>
-              <div>
-                {project.images.map((img) => (
-                  <img
-                    key={img.src}
-                    src={img.src}
-                    alt={img.alt}
-                    className="modal-image"
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {(project.links?.live || project.links?.repo) && (
-            <section aria-label="Project links">
-              <h3>Links</h3>
+          {project.links?.codeExamples?.length > 0 && (
+            <section>
+              <h3>Selected Code Examples</h3>
               <ul className="modal-links">
-                {project.links.live && (
-                  <li>
-                    <a
-                      href={project.links.live}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Live site
-                    </a>
-                  </li>
-                )}
-                {project.links.repo && (
-                  <li>
-                    <a
-                      href={project.links.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Source code
-                    </a>
-                  </li>
-                )}
+                {project.links.codeExamples
+                  .slice(0, 4)
+                  .map((example) => (
+                    <li key={example.link}>
+                      <a
+                        href={example.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {example.text}
+                      </a>
+                      <p>{example.description}</p>
+                    </li>
+                  ))}
               </ul>
             </section>
           )}
+
+          <button
+            className="view-full-project-button"
+            onClick={() => {
+              window.location.hash = `#/projects/${project.id}`;
+              onClose();
+            }}
+          >
+            View full project details →
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 
 function FooterNote() {
   return (
     <footer className="footer-note">
-      <p>Built with React. Style is WIP.</p>
+      <p>Built with React.</p>
     </footer>
   );
 }
