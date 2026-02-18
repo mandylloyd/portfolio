@@ -453,7 +453,7 @@ button:focus-visible {
   animation-timing-function: linear;
 
   animation-timeline: view();
-  animation-range: entry 10% cover 30%;
+  animation-range: entry 30% cover 15%;
 }
 
 @keyframes fadeInSoft {
@@ -480,6 +480,10 @@ button:focus-visible {
 
   .hero-title {
     font-size: 1.6rem;
+  }
+
+  .reveal-on-scroll {
+    animation-range: entry 5% cover 15%;
   }
 }
 
