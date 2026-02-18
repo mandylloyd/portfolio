@@ -13,9 +13,12 @@
   --accent-hover: #7c3aed;
   --accent-strong: #6d28d9;
 
+  --accent-secondary: #2dd4bf;
+  --accent-secondary-soft: #134e4a;
+
   --link-dark-bg: #c4b5fd;
 
-  --focus: #a78bfa;
+  --focus: var(--accent-secondary);
 
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.6);
@@ -58,6 +61,7 @@ a {
 }
 
 a:hover {
+  color: var(--accent-secondary);
   text-decoration: underline;
 }
 
@@ -86,7 +90,7 @@ button:focus-visible {
   border: 1px solid #3b3563;
   color: #ddd6fe;
   border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 0.9rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -143,14 +147,14 @@ button:focus-visible {
   color: var(--text-secondary);
 
   transition: transform 0.15s ease,
-              border-color 0.15s ease,
-              color 0.15s ease,
-              background 0.15s ease;
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
 }
 
 .header-links a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
   background: var(--surface-elevated);
   transform: translateY(-2px);
 }
@@ -193,7 +197,7 @@ button:focus-visible {
   flex-wrap: wrap;
   gap: 0.6rem;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-size: 0.9rem;
 }
 
@@ -242,8 +246,10 @@ button:focus-visible {
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent-secondary);
+  background: linear-gradient(to right,
+      var(--accent-secondary-soft),
+      var(--surface));
 }
 
 /* Sparkle */
@@ -254,7 +260,7 @@ button:focus-visible {
   top: 10px;
   right: 12px;
   font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
 }
@@ -264,9 +270,20 @@ button:focus-visible {
 }
 
 @keyframes sparkle {
-  0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-  50% { opacity: 1; transform: scale(2.2) rotate(20deg); }
-  100% { opacity: 0; transform: scale(1.2) rotate(45deg); }
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(20deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(45deg);
+  }
 }
 
 .project-role {
@@ -385,20 +402,16 @@ button:focus-visible {
   inset: 0;
 
   background:
-    repeating-linear-gradient(
-      0deg,
+    repeating-linear-gradient(0deg,
       var(--bg) 0px,
       var(--bg) 4px,
       transparent 4px,
-      transparent 8px
-    ),
-    repeating-linear-gradient(
-      90deg,
+      transparent 8px),
+    repeating-linear-gradient(90deg,
       var(--bg) 0px,
       var(--bg) 4px,
       transparent 4px,
-      transparent 8px
-    );
+      transparent 8px);
 
   transform-origin: bottom left;
 
@@ -449,6 +462,7 @@ button:focus-visible {
     transform: translateY(30px);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -472,6 +486,7 @@ button:focus-visible {
 /* Motion fallback */
 
 @media (prefers-reduced-motion: reduce) {
+
   .project-card::after,
   .pixel-reveal::before,
   .reveal-on-scroll {
