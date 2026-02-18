@@ -5,7 +5,7 @@ export const TAGS = [
   "accessibility",
   "react",
   "sass"
-  ];
+];
 
 export const projects = [
   {
@@ -53,10 +53,10 @@ export const projects = [
 
       codeExamples: [
         {
-          text: "Client-Side PDF Field Population + Page Reordering",
-          link: "https://github.com/usagov/vote-gov-nvrf-app",
+          text: "State-Driven Conditional Rendering Architecture",
+          link: "https://github.com/usagov/vote-gov-nvrf-app/pull/2",
           description:
-            "Filled the official NVRF PDF template programmatically, conditionally removed pages, and generated downloadable PDFs entirely client-side."
+            "Structured a configuration-driven multi-step form that dynamically renders required and optional fields per state, reducing duplication and enabling scalable jurisdiction support."
         },
         {
           text: "Custom Validation + State Rules (PR #9)",
@@ -80,7 +80,7 @@ export const projects = [
     },
 
     images: []
-  },  
+  },
   {
     id: "uswds-design-system",
     title:
