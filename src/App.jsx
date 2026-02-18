@@ -162,17 +162,15 @@ function ConstructionBanner() {
   return (
     <div className="construction-banner">
       <p>
-        ✦ This portfolio site is currently under construction. Styling and additional
-        project examples are a work in progress. ✦<br></br> Please check back soon but in the mean time
-        feel free to review my{" "}
+        ✦ This portfolio is perpetually under construction. You can expect updates to occur without warning, usually during unpredictable bursts of inspiration. 
+        Full experience and work history can always be found in my {" "}
         <a
           href="/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
           target="_blank"
           rel="noreferrer"
         >
           resume
-        </a>{" "}
-        for full experience and work history!
+        </a>. ✦
       </p>
     </div>
   );
