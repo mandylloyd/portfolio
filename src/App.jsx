@@ -165,7 +165,7 @@ function ConstructionBanner() {
         project examples are a work in progress. <br></br> Please check back soon but in the mean time
         feel free to review my{" "}
         <a
-          href="/portfolio/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
+          href="/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
           target="_blank"
           rel="noreferrer"
         >
@@ -207,7 +207,7 @@ function Header() {
             LinkedIn
           </a>
           <a
-            href="/portfolio/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
+            href="/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
             target="_blank"
             rel="noreferrer"
           >
