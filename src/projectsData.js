@@ -2,7 +2,7 @@ export const TAGS = [
   "drupal",
   "javascript",
   "css/scss",
-  "accessibility", ,
+  "accessibility",
   "react",
   "sass"
   ];

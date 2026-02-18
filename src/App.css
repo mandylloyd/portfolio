@@ -64,3 +64,15 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
 }
+
+/* Banner */
+
+.construction-banner {
+  background: #fff3cd;
+  color: #664d03;
+  border: 1px solid #ffe69c;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
