@@ -161,8 +161,8 @@ function ConstructionBanner() {
   return (
     <div className="construction-banner">
       <p>
-        🚧 This portfolio site is currently under construction. Styling and additional
-        project examples are a work in progress. <br></br> Please check back soon but in the mean time
+        ✦ This portfolio site is currently under construction. Styling and additional
+        project examples are a work in progress. ✦<br></br> Please check back soon but in the mean time
         feel free to review my{" "}
         <a
           href="/Mandy_Lloyd_Front-End_Engineer_Accessibility.pdf"
@@ -424,7 +424,7 @@ function ProjectModal({ project, onClose }) {
 function FooterNote() {
   return (
     <footer className="footer-note">
-      <p>Built with React.</p>
+      <p>✦ Built with React ✦</p>
     </footer>
   );
 }

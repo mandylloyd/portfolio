@@ -9,8 +9,15 @@
   --text-primary: #f4f4f8;
   --text-secondary: #b4b4c7;
 
-  --accent: #8b5cf6;
+  --accent: #9768ff;
   --accent-hover: #7c3aed;
+  --accent-strong: #6d28d9;
+
+  --link-color-bg-dark: #a78bfa;
+  --link-color-bg-dark: #c4b5fd;
+  --link-color-bg-light: #312e81;
+  --link-color-bg-light: #a78bfa;
+  
 
   --tag-bg: #312e81;
   --tag-text: #e0e7ff;
@@ -34,18 +41,29 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
+  font-size: 16px;
+}
+
+h1, h2, h3,
+.header-name,
+.project-title,
+.filter-button,
+.project-tags,
+.project-role {
+  font-family: "JetBrains Mono", monospace;
 }
 
 a {
-  color: var(--accent);
+  color: var(--link-color-bg-dark);
   text-decoration: none;
 }
 
 a:hover {
+  color: var(--link-color-bg-dark);
   text-decoration: underline;
 }
 
@@ -54,6 +72,7 @@ button:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
+
 
 .app-root {
   min-height: 100vh;
@@ -68,13 +87,50 @@ button:focus-visible {
 /* Banner */
 
 .construction-banner {
-  background: #fff3cd;
-  color: #664d03;
-  border: 1px solid #ffe69c;
+  background: #2a2445;
+  border: 1px solid #3b3563;
+  color: #ddd6fe;
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
+  text-align: center;
   margin-bottom: 2rem;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Header */
+
+.app-header {
+  margin-bottom: 2.5rem;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.header-name {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.header-role {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
 }
 
 /* Hero */
@@ -121,7 +177,7 @@ button:focus-visible {
   border: 1px solid var(--border);
   background: #2a2a3c;
 
-  color: var(--text-secondary);   /* 👈 FIX */
+  color: var(--text-secondary);
   cursor: pointer;
 
   transition: all 0.15s ease;
@@ -134,42 +190,10 @@ button:focus-visible {
 }
 
 .filter-button--active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #ffffff;
   font-weight: 600;
-}
-
-/* Header */
-
-.app-header {
-  margin-bottom: 2.5rem;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.header-name {
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin: 0;
-}
-
-.header-role {
-  margin: 0.25rem 0 0;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-.header-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.9rem;
 }
 
 /* Project card */
@@ -270,6 +294,7 @@ button:focus-visible {
 
 .modal-close {
   background: transparent;
+  color: var(--accent);
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
@@ -284,7 +309,7 @@ button:focus-visible {
   padding: 0.6rem 1rem;
   border-radius: var(--radius-sm);
   border: none;
-  background: var(--accent);
+  background: var(--accent-strong);
   color: white;
   cursor: pointer;
   font-weight: 600;
@@ -301,7 +326,7 @@ button:focus-visible {
   padding: 0.6rem 1rem;
   border-radius: var(--radius-sm);
   border: none;
-  background: var(--accent);
+  background: var(--accent-strong);
   color: white;
   cursor: pointer;
   font-weight: 600;
@@ -317,4 +342,17 @@ button:focus-visible {
   margin-top: 3rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+/* Mobile/Tablet */
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
 }
