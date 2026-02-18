@@ -232,7 +232,6 @@ button:focus-visible {
   border-radius: 999px;
 }
 
-
 /* Modal */
 
 .modal-backdrop {
@@ -293,4 +292,29 @@ button:focus-visible {
 
 .view-full-project-button:hover {
   background: var(--accent-hover);
+}
+
+/* Full project page */
+
+.back-button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  background: var(--accent-hover);
+}
+
+/* Footer */
+
+.footer-note {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
