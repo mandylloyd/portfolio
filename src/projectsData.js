@@ -1,9 +1,11 @@
 export const TAGS = [
   "drupal",
   "javascript",
-  "css/sass",
+  "css/scss",
   "accessibility", ,
-  "react"];
+  "react",
+  "sass"
+  ];
 
 export const projects = [
   {
@@ -29,9 +31,7 @@ export const projects = [
       "accessibility",
       "javascript",
       "drupal",
-      "css/sass",
-      "uswds",
-      "agile"
+      "css/scss",
     ],
 
     role:
@@ -80,6 +80,80 @@ export const projects = [
     },
 
     images: []
+  },  
+  {
+    id: "uswds-design-system",
+    title:
+      "Bixal – GSA Client: U.S. Web Design System (USWDS) Component Engineering",
+
+    shortDescription:
+      "Contributed feature enhancements, accessibility improvements, and forward-compatibility updates to core USWDS components including Modals, In-Page Navigation, Input Mask, and Sass architecture.",
+
+    longDescription:
+      "As a Front-End Engineer at Bixal supporting the U.S. Web Design System (USWDS), I contributed enhancements and accessibility improvements across multiple core components used by federal agencies nationwide.\n\nWork included extending modal APIs with programmatic controls, modernizing Sass color utilities for Dart Sass 2.0 compatibility, improving conditional rendering logic for in-page navigation, and leading a large-scale accessibility-focused refactor of the Input Mask component.\n\nAll work required multi-round review collaboration with maintainers, regression testing within Storybook, adherence to non-breaking change policies, WCAG alignment, and unit test updates within the design system’s architecture.",
+
+    impact: [
+      "Extended Modal component with non-breaking programmatic APIs (show, hide, toggle) to support automated triggers.",
+      "Modernized deprecated Sass color utilities to ensure Dart Sass 2.0 compatibility and prevent future build failures.",
+      "Improved In-Page Navigation usability with configurable minimum heading logic to prevent empty rendering.",
+      "Led accessibility-focused Input Mask refactor introducing dynamic visual and screen reader error feedback.",
+      "Resolved complex edge cases including modifier keys, rapid typing, paste behavior, and navigation key handling.",
+      "Collaborated across 100+ review comments to refine architecture and maintain system consistency."
+    ],
+
+    tags: [
+      "javascript",
+      "accessibility",
+      "uswds",
+      "sass",
+      "storybook"
+    ],
+
+    role:
+      "Front-End Engineer (Component Architecture, Accessibility Engineering, Design System Contributions)",
+
+    techStack: [
+      "JavaScript",
+      "Sass",
+      "Storybook",
+      "WCAG / ARIA",
+      "Git",
+      "Unit Testing",
+      "USWDS"
+    ],
+
+    links: {
+      repo: "https://github.com/uswds/uswds",
+
+      codeExamples: [
+        {
+          text: "Input Mask Accessibility Refactor (PR #6203)",
+          link: "https://github.com/uswds/uswds/pull/6203",
+          description:
+            "Led a large-scale refactor adding dynamic error messaging, screen reader announcements, paste handling improvements, and expanded unit tests."
+        },
+        {
+          text: "Programmatic Modal API Extension (PR #6299)",
+          link: "https://github.com/uswds/uswds/pull/6299",
+          description:
+            "Introduced non-breaking show(), hide(), and toggle() modal APIs while preserving existing event-driven behavior."
+        },
+        {
+          text: "In-Page Navigation Minimum Heading Logic (PR #6205)",
+          link: "https://github.com/uswds/uswds/pull/6205",
+          description:
+            "Added configurable data-minimum-heading-count attribute to conditionally render navigation only when meaningful."
+        },
+        {
+          text: "Dart Sass 2.0 Compatibility Migration (PR #6270)",
+          link: "https://github.com/uswds/uswds/pull/6270",
+          description:
+            "Replaced deprecated Sass color functions with color.channel() to eliminate compiler warnings and ensure forward compatibility."
+        },
+      ]
+    },
+
+    images: []
   },
   {
     id: "vote-gov-drupal",
@@ -102,10 +176,8 @@ export const projects = [
     tags: [
       "drupal",
       "javascript",
-      "css/sass",
+      "css/scss",
       "accessibility",
-      "uswds",
-      "agile"
     ],
 
     role:
