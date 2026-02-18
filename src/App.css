@@ -77,8 +77,70 @@ button:focus-visible {
   margin-bottom: 2rem;
 }
 
-/* Header */
+/* Hero */
 
+.hero {
+  margin-bottom: 2.5rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hero-title {
+  margin: 0.5rem 0 1rem;
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.hero-text {
+  max-width: 40rem;
+  color: var(--text-secondary);
+}
+
+/* Filter bar */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.filter-button {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+
+  border: 1px solid var(--border);
+  background: #2a2a3c;
+
+  color: var(--text-secondary);   /* 👈 FIX */
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+}
+
+.filter-button:hover {
+  border-color: var(--accent);
+  background: #343450;
+  color: var(--text-primary);
+}
+
+.filter-button--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+/* Header */
 
 .app-header {
   margin-bottom: 2.5rem;
@@ -111,7 +173,6 @@ button:focus-visible {
 }
 
 /* Project card */
-
 
 .project-grid {
   display: grid;
