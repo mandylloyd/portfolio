@@ -1,16 +1,68 @@
-# React + Vite
+# Mandy Lloyd — Frontend Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based portfolio showcasing frontend architecture, accessibility-driven development, and component-level engineering work across federal and design system projects.
 
-Currently, two official plugins are available:
+Built to demonstrate systems thinking, validation logic, UI resilience, and modern JavaScript patterns — not just visual output.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio highlights selected work across:
 
-## Expanding the ESLint configuration
+- React multi-step form architecture
+- State-driven conditional rendering
+- Accessibility (WCAG + Section 508 alignment)
+- Validation logic and UX behavior
+- Component refactoring and design system contributions
+- Frontend debugging and layout resilience
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Each project includes curated examples, screenshots, and focused code snippets to reduce reliance on external PR navigation.
+
+---
+
+## Tech Stack
+
+- React (v18+)
+- JavaScript (ES6+)
+- CSS (custom properties + design tokens)
+- Component-driven architecture
+- Accessible interaction patterns
+- Git
+
+Optional enhancements:
+- Scroll-triggered CSS animations (view-timeline)
+- Pixel-mask reveal effect (CSS mask + transform)
+- Reduced-motion support
+
+---
+
+## Design Philosophy
+
+This site intentionally balances:
+
+- Professional clarity
+- Accessible contrast and focus states
+- Minimal visual noise
+- Subtle interaction energy
+- Controlled use of accent colors
+
+Primary accent: Violet  
+Secondary accent: Teal (interaction states only)  
+
+Motion is used sparingly and respects `prefers-reduced-motion`.
+
+---
+
+## Accessibility
+
+Accessibility considerations include:
+
+- Semantic heading hierarchy
+- Proper ARIA usage where appropriate
+- WCAG AA contrast compliance
+- Keyboard navigation support
+- Focus-visible states
+- Reduced motion fallback
+
+Accessibility is treated as a baseline requirement, not a feature.
