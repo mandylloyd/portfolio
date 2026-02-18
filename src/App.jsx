@@ -411,7 +411,7 @@ function ProjectModal({ project, onClose }) {
               onClose();
             }}
           >
-            View full project details →
+            Show More →
           </button>
         </div>
       </div>

@@ -55,13 +55,12 @@ export const projects = [
       repo: "https://github.com/usagov/vote-gov-drupal",
 
       codeExamples: [
-        // TOP 4 — These show in modal
-
+        // TOP 4
         {
-          text: "Accessibility Remediation (ARIA + Semantic Structure)",
-          link: "https://github.com/usagov/vote-gov-drupal/pull/729",
+          text: "SCSS Architecture + High Contrast Support",
+          link: "https://github.com/usagov/vote-gov-drupal/pull/783/changes",
           description:
-            "Improved WCAG compliance by refining alt text, correcting ARIA attributes, and restructuring semantic landmarks to eliminate redundant screen reader region announcements."
+            "Enhanced theme-level SCSS structure using nesting and CSS custom properties to support high-contrast accessibility modes."
         },
         {
           text: "Component Architecture – Hero Variants",
@@ -76,13 +75,13 @@ export const projects = [
             "Embedded a React application within a custom Drupal block, demonstrating CMS-to-SPA integration within a federal platform."
         },
         {
-          text: "USWDS Overrides + RTL Support",
-          link: "https://github.com/usagov/vote-gov-drupal/blob/4c1abff8584c059412c3947654b9102b785538b3/web/themes/custom/votegov/src/sass/uswds-overrides/usa-breadcrumb.scss",
+          text: "Frontend Documentation",
+          link: "https://github.com/usagov/vote-gov-drupal/blob/ad25b33c903763a0201837f8ac10471a69a3a4db/docs/frontend.md",
           description:
-            "Implemented USWDS SCSS overrides including right-to-left (RTL) styling adjustments to support multilingual layouts."
+            "Expanded frontend documentation clarifying component usage, Twig templates, and SCSS structure."
         },
 
-        // Remaining examples (only on full page)
+        // Remaining examples
 
         {
           text: "Drupal Views + WCAG 2.4.5 (Multiple Ways)",
@@ -97,16 +96,22 @@ export const projects = [
             "Improved filtering logic to allow matching by state abbreviation and partial word input."
         },
         {
+          text: "Accessibility Remediation (ARIA + Semantic Structure)",
+          link: "https://github.com/usagov/vote-gov-drupal/pull/729",
+          description:
+            "Improved WCAG compliance by refining alt text, correcting ARIA attributes, and restructuring semantic landmarks to eliminate redundant screen reader region announcements."
+        },
+        {
           text: "Responsive Layout Bug Fix (USWDS Grid)",
           link: "https://github.com/usagov/vote-gov-drupal/pull/644",
           description:
             "Resolved layout constraints within the USWDS grid system to ensure proper spacing for language selector controls."
         },
         {
-          text: "SCSS Architecture + High Contrast Support",
-          link: "https://github.com/usagov/vote-gov-drupal/pull/783/changes",
+          text: "USWDS Overrides + RTL Support",
+          link: "https://github.com/usagov/vote-gov-drupal/blob/4c1abff8584c059412c3947654b9102b785538b3/web/themes/custom/votegov/src/sass/uswds-overrides/usa-breadcrumb.scss",
           description:
-            "Enhanced theme-level SCSS structure using nesting and CSS custom properties to support high-contrast accessibility modes."
+            "Implemented USWDS SCSS overrides including right-to-left (RTL) styling adjustments to support multilingual layouts."
         },
         {
           text: "Drupal Configuration – Admin Permissions",
@@ -114,12 +119,6 @@ export const projects = [
           description:
             "Updated Drupal administrative permissions to support secure content workflows."
         },
-        {
-          text: "Frontend Documentation",
-          link: "https://github.com/usagov/vote-gov-drupal/blob/ad25b33c903763a0201837f8ac10471a69a3a4db/docs/frontend.md",
-          description:
-            "Expanded frontend documentation clarifying component usage, Twig templates, and SCSS structure."
-        }
       ]
     },
 
