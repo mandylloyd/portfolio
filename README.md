@@ -2,8 +2,6 @@
 
 A React-based portfolio showcasing frontend architecture, accessibility-driven development, and component-level engineering work across federal and design system projects.
 
-Built to demonstrate systems thinking, validation logic, UI resilience, and modern JavaScript patterns — not just visual output.
-
 ---
 
 ## Overview
@@ -26,31 +24,25 @@ Each project includes curated examples, screenshots, and focused code snippets t
 - React (v18+)
 - JavaScript (ES6+)
 - CSS (custom properties + design tokens)
-- Component-driven architecture
-- Accessible interaction patterns
 - Git
 
-Optional enhancements:
-- Scroll-triggered CSS animations (view-timeline)
+Notable implementation details:
+- Scroll-triggered CSS animations (`view-timeline`)
 - Pixel-mask reveal effect (CSS mask + transform)
-- Reduced-motion support
+- `prefers-reduced-motion` support throughout
 
 ---
 
-## Design Philosophy
+## Testing
 
-This site intentionally balances:
+Component-level tests are written with Vitest and React Testing Library. Test coverage is focused on accessibility: semantic roles, accessible names, and keyboard interaction.
 
-- Professional clarity
-- Accessible contrast and focus states
-- Minimal visual noise
-- Subtle interaction energy
-- Controlled use of accent colors
+```bash
+npm test          # run once
+npm run test:watch  # watch mode
+```
 
-Primary accent: Violet  
-Secondary accent: Teal (interaction states only)  
-
-Motion is used sparingly and respects `prefers-reduced-motion`.
+GitHub Actions CI is planned for a follow-up PR.
 
 ---
 
@@ -64,5 +56,3 @@ Accessibility considerations include:
 - Keyboard navigation support
 - Focus-visible states
 - Reduced motion fallback
-
-Accessibility is treated as a baseline requirement, not a feature.
