@@ -1,6 +1,6 @@
 export default function ProjectCard({ project, onClick }) {
   return (
-    <article
+    <button
       className="project-card reveal-on-scroll pixel-mask"
       onClick={onClick}
       onKeyDown={(event) => {
@@ -9,7 +9,6 @@ export default function ProjectCard({ project, onClick }) {
           onClick();
         }
       }}
-      role="button"
       tabIndex={0}
       aria-label={`View details for ${project.title}`}
     >
@@ -21,6 +20,6 @@ export default function ProjectCard({ project, onClick }) {
           <li key={tag}>#{tag}</li>
         ))}
       </ul>
-    </article>
+    </button>
   );
 };
