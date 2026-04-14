@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-heading">
@@ -9,6 +11,7 @@ export default function Hero() {
         I build accessible, component-driven interfaces using React, JavaScript,
         and modern CSS.
       </p>
+      <p>Checkout my <Link to="/a11y-checklist">Accessibility Checklist for Developers &rarr;</Link></p>
       {/* <ul className="hero-keywords">
         <li>React</li>
         <li>JavaScript</li>

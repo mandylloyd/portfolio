@@ -16,13 +16,33 @@ npm test
 
 ## Accessibility Checklist
 
-- [ ] Semantic HTML used where appropriate
-- [ ] ARIA attributes added only where necessary
-- [ ] Keyboard navigation works as expected
-- [ ] Focus states are visible
-- [ ] Color contrast meets WCAG AA
-- [ ] Tested with reduced motion enabled
-- [ ] No new axe violations introduced
+### Semantic markup
+
+- [ ] Correct HTML elements used for structure (headings, lists, tables, forms)
+- [ ] `<div>` and `<span>` not used for structural or interactive purposes
+
+### Keyboard navigation
+
+- [ ] All interactive elements are reachable with the Tab key
+- [ ] Focus order matches the visual reading order
+- [ ] Focus indicator is visible at all times (no suppressed outlines)
+
+### ARIA attributes
+
+- [ ] ARIA used only where native HTML isn't sufficient
+- [ ] Interactive elements have a meaningful `aria-label`, `role`, or `alt` where needed
+
+### Forms and errors
+
+- [ ] Every form field has a visible, programmatically associated label
+- [ ] Form errors are announced to screen readers (not just displayed visually)
+- [ ] Fields with errors are identified with both color and a text description
+
+### Media
+
+- [ ] Videos and audio use an accessible, controllable player
+- [ ] Subtitles and/or alternative tracks are available
+- [ ] Audio and video do not autoplay without the user's consent
 
 ## General Checklist
 
