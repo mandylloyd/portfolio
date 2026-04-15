@@ -35,6 +35,7 @@ const sections = [
       <><code>aria-expanded</code>, <code>aria-selected</code>, <code>aria-checked</code> reflect actual state</>,
       <>Don't use <code>aria-hidden</code> on elements that are focusable</>,
       <>Modal dialogs use <code>role="dialog"</code> with <code>aria-modal="true"</code> and a labeled title</>,
+      <>Use visually hidden text (not visibility: hidden or display: none) to provide screen reader context that doesn't need to be visible — e.g. for live regions, icon buttons, and status messages</>
     ],
   },
   {
