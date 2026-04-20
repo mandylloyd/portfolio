@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ProjectCard from './ProjectCard';
+import { axe } from 'vitest-axe'
 
 describe('ProjectCard', () => {
   const user = userEvent.setup()
@@ -103,4 +104,10 @@ describe('ProjectCard', () => {
     render(<ProjectCard project={project} onClick={handleClick} />)
 
     expect(screen.getByRole('button', { name: `View details for ${project.title}` })).toBeInTheDocument();})
+  
+  it('should pass axe accessibilty tests', async () => {
+    const { container } = render(<ProjectCard project={project} onClick={handleClick} />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  })  
 })
